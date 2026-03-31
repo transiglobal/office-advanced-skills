@@ -1,13 +1,13 @@
 ---
 name: office-advanced-skills
-description: 传米科技 OpenClaw 办公高级合集一键安装器。包含全网搜索、AI编码、图表生成、抖音热榜、去AI味润色、研究分析、PPT生成、网站爬虫、文档OCR、内容摘要、飞书画板、叙事风格共12个高级办公技能。触发词："安装办公高级合集"、"安装高级技能"、"office advanced"。
+description: 传米科技 OpenClaw 办公高级合集一键安装器。包含全网搜索、AI编码、图表生成、抖音热榜、微信公众号工具、去AI味润色、研究分析、PPT生成、网站爬虫、文档OCR、内容摘要、飞书画板、叙事风格共13个高级办公技能。触发词："安装办公高级合集"、"安装高级技能"、"office advanced"。
 ---
 
 # 办公高级合集
 
 传米科技 OpenClaw 办公高级技能合集，覆盖内容创作、研究分析、文档处理、可视化等场景。
 
-## 包含技能（10个）
+## 包含技能（11个）
 
 ### workspace skills（~/.openclaw/workspace/skills/）
 | 技能 | 功能 |
@@ -16,6 +16,7 @@ description: 传米科技 OpenClaw 办公高级合集一键安装器。包含全
 | claude-code | Claude Code AI编码集成 |
 | diagram-generator | 图表生成：流程图、架构图、ER图、思维导图（draw.io/Mermaid/Excalidraw） |
 | douyin-hot-trend | 抖音热榜/热搜实时数据 |
+| wechat-toolkit | 微信公众号工具：搜索文章、下载内容、AI洗稿改写、推送草稿箱 |
 | elatia-humanizer-zh | 去AI味润色：去除文本AI生成痕迹，优化写作风格 |
 | research-analyzer | 综合研究分析，生成研究报告 |
 | skywork-ppt | AI PPT生成与编辑（基于Nano Banana 2） |
