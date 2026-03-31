@@ -1,6 +1,6 @@
 ---
 name: office-advanced-skills
-description: 传米科技 OpenClaw 办公高级合集一键安装器。包含全网搜索、AI编码、图表生成、抖音热榜、研究分析、PPT生成、网站爬虫、文档OCR、内容摘要、飞书画板共10个高级办公技能。触发词："安装办公高级合集"、"安装高级技能"、"office advanced"。
+description: 传米科技 OpenClaw 办公高级合集一键安装器。包含全网搜索、AI编码、图表生成、抖音热榜、去AI味润色、研究分析、PPT生成、网站爬虫、文档OCR、内容摘要、飞书画板、叙事风格共12个高级办公技能。触发词："安装办公高级合集"、"安装高级技能"、"office advanced"。
 ---
 
 # 办公高级合集
@@ -16,6 +16,7 @@ description: 传米科技 OpenClaw 办公高级合集一键安装器。包含全
 | claude-code | Claude Code AI编码集成 |
 | diagram-generator | 图表生成：流程图、架构图、ER图、思维导图（draw.io/Mermaid/Excalidraw） |
 | douyin-hot-trend | 抖音热榜/热搜实时数据 |
+| elatia-humanizer-zh | 去AI味润色：去除文本AI生成痕迹，优化写作风格 |
 | research-analyzer | 综合研究分析，生成研究报告 |
 | skywork-ppt | AI PPT生成与编辑（基于Nano Banana 2） |
 | feishu-help-crawler | 通用网站爬虫（Playwright） |
@@ -26,6 +27,7 @@ description: 传米科技 OpenClaw 办公高级合集一键安装器。包含全
 | 技能 | 功能 |
 |------|------|
 | feishu-cli-board | 飞书画板：架构图、流程图、看板，支持Mermaid导入 |
+| narrative-voice | 叙事风格：日常会话输出富有故事感、有温度的回应 |
 
 ## 安装方式
 
