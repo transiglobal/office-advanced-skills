@@ -1,6 +1,6 @@
 ---
 name: office-advanced-skills
-description: 传米科技 OpenClaw 办公高级合集一键安装器。包含全网搜索、AI编码、图表生成、抖音热榜、微信公众号工具、去AI味润色、研究分析、PPT生成、网站爬虫、文档OCR、内容摘要、飞书画板、叙事风格共13个高级办公技能。触发词："安装办公高级合集"、"安装高级技能"、"office advanced"。
+description: 传米科技 OpenClaw 办公高级合集一键安装器。包含全网搜索、AI编码、图表生成、抖音热榜、微信公众号工具、去AI味润色、研究分析、PPT生成、网站爬虫、文档OCR、内容摘要、叙事风格共12个高级办公技能。触发词："安装办公高级合集"、"安装高级技能"、"office advanced"。
 ---
 
 # 办公高级合集
@@ -27,7 +27,6 @@ description: 传米科技 OpenClaw 办公高级合集一键安装器。包含全
 ### global skills（~/.openclaw/skills/）
 | 技能 | 功能 |
 |------|------|
-| feishu-cli-board | 飞书画板：架构图、流程图、看板，支持Mermaid导入 |
 | narrative-voice | 叙事风格：日常会话输出富有故事感、有温度的回应 |
 
 ## 安装方式
