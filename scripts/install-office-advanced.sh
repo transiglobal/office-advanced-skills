@@ -65,6 +65,9 @@ ask_api_key "TAVILY_API_KEY" "Tavily API Key（research-analyzer 用，可从 ht
 ask_api_key "PADDLEOCR_ACCESS_TOKEN" "PaddleOCR Access Token（paddleocr-doc-parsing 用，见 https://paddleocr.com）" "PADDLEOCR_ACCESS_TOKEN"
 ask_api_key "PADDLEOCR_DOC_PARSING_API_URL" "PaddleOCR API URL（如 https://xxx.paddleocr.com/layout-parsing）" "PADDLEOCR_DOC_PARSING_API_URL"
 
+# skywork-ppt 需要 Skywork Token
+ask_api_key "SKYBOT_TOKEN" "Skywork Token（skywork-ppt 用，可从 https://skywork.ai 获取）" "SKYBOT_TOKEN"
+
 echo ""
 
 # ============================================================
@@ -191,7 +194,7 @@ log "阶段 2 完成"
 info "阶段 3：自动配置..."
 
 # 加载所有 API Key 到环境变量
-for key in TAVILY_API_KEY PADDLEOCR_ACCESS_TOKEN PADDLEOCR_DOC_PARSING_API_URL; do
+for key in TAVILY_API_KEY PADDLEOCR_ACCESS_TOKEN PADDLEOCR_DOC_PARSING_API_URL SKYBOT_TOKEN; do
   if grep -q "^${key}=" "$ENV_FILE" 2>/dev/null; then
     set -a
     source "$ENV_FILE"
@@ -200,18 +203,18 @@ for key in TAVILY_API_KEY PADDLEOCR_ACCESS_TOKEN PADDLEOCR_DOC_PARSING_API_URL; 
   fi
 done
 
-# skywork-ppt: 尝试非交互式认证（全新环境会失败，属正常）
+# skywork-ppt: 验证 Token
 SKY_AUTH="$WORKSPACE_SKILLS/skywork-ppt/scripts/skywork_auth.py"
 if [ -f "$SKY_AUTH" ]; then
-  info "skywork-ppt: 尝试自动认证..."
-  # 非交互式模式，如果失败会输出提示，不阻塞安装
-  result=$(python3 "$SKY_AUTH" 2>&1) || true
-  if echo "$result" | grep -q "LoginRequired\|登录"; then
-    warn "skywork-ppt: 需要手动认证，请在桌面环境运行: python3 $SKY_AUTH"
-  elif echo "$result" | grep -q "Authentication successful"; then
-    log "skywork-ppt: 认证成功"
+  if [ -n "${SKYBOT_TOKEN:-}" ]; then
+    info "skywork-ppt: 验证 Token..."
+    if python3 "$SKY_AUTH" --check 2>/dev/null; then
+      log "skywork-ppt: Token 有效"
+    else
+      warn "skywork-ppt: Token 无效，请检查是否正确"
+    fi
   else
-    info "skywork-ppt: 认证状态未知（$result），可忽略"
+    info "skywork-ppt: 未提供 SKYBOT_TOKEN，跳过验证"
   fi
 fi
 
@@ -237,7 +240,7 @@ echo "以下项目需用户配合，请确认是否已在安装时提供："
 grep -q "^TAVILY_API_KEY=" "$ENV_FILE" 2>/dev/null && echo "  ✅ Tavily API Key（research-analyzer）" || echo "  ⚠️ Tavily API Key 未提供（research-analyzer 需用 https://tavily.com 申请）"
 grep -q "^PADDLEOCR_ACCESS_TOKEN=" "$ENV_FILE" 2>/dev/null && echo "  ✅ PaddleOCR Access Token（paddleocr-doc-parsing）" || echo "  ⚠️ PaddleOCR Access Token 未提供（paddleocr-doc-parsing 需用 https://paddleocr.com 申请）"
 grep -q "^PADDLEOCR_DOC_PARSING_API_URL=" "$ENV_FILE" 2>/dev/null && echo "  ✅ PaddleOCR API URL" || echo "  ⚠️ PaddleOCR API URL 未提供"
-[ -f "$SKY_AUTH" ] && echo "  ⚠️ skywork-ppt 需在桌面环境手动登录认证：python3 ${SKY_AUTH}"
+grep -q "^SKYBOT_TOKEN=" "$ENV_FILE" 2>/dev/null && echo "  ✅ Skywork Token（skywork-ppt）" || echo "  ⚠️ Skywork Token 未提供（skywork-ppt 需用 https://skywork.ai 获取）"
 echo ""
 echo "请重启 OpenClaw 会话使新技能生效。"
 echo "=================================================="
