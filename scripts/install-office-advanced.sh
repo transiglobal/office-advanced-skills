@@ -88,9 +88,13 @@ WORKSPACE_REPOS=(
   "feishu-help-crawler:feishu-help-crawler"
   "paddleocr-doc-parsing:paddleocr-doc-parsing"
   "summarize:summarize"
+  "elatia-humanizer-zh:elatia-humanizer-zh"
+  "wechat-toolkit:wechat-toolkit"
 )
 
-GLOBAL_REPOS=()
+GLOBAL_REPOS=(
+  "narrative-voice:narrative-voice"
+)
 
 clone_skill() {
   local repo=$1
@@ -114,6 +118,12 @@ SUCCESS=0; FAIL=0
 for item in "${WORKSPACE_REPOS[@]}"; do
   repo="${item%%:*}"; dir="${item##*:}"
   clone_skill "$repo" "$dir" "$WORKSPACE_SKILLS" && ((SUCCESS++)) || ((FAIL++))
+done
+
+# 全局技能安装
+for item in "${GLOBAL_REPOS[@]}"; do
+  repo="${item%%:*}"; dir="${item##*:}"
+  clone_skill "$repo" "$dir" "$GLOBAL_SKILLS" && ((SUCCESS++)) || ((FAIL++))
 done
 
 echo ""
