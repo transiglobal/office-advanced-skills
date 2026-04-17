@@ -1,11 +1,11 @@
 #!/bin/bash
 # =============================================================================
 # install-office-advanced.sh — 传米科技 OpenClaw 办公高级合集一键安装脚本
-# 来源：https://github.com/transiglobal
+# 来源：https://git.moguyn.cn/transiglobal
 # 用法：
 #   本地安装：bash install-office-advanced.sh
 #   远程安装：ssh user@host 'bash -s' < install-office-advanced.sh
-#   curl安装：curl -fsSL https://raw.githubusercontent.com/transiglobal/office-advanced-skills/main/scripts/install-office-advanced.sh | bash
+#   curl安装：curl -fsSL https://git.moguyn.cn/transiglobal/office-advanced-skills/raw/branch/main/scripts/install-office-advanced.sh | bash
 # =============================================================================
 
 set -euo pipefail
@@ -20,7 +20,7 @@ prompt() { echo -e "${YELLOW}[?]${NC} $1"; }
 
 WORKSPACE_SKILLS="${HOME}/.openclaw/workspace/skills"
 GLOBAL_SKILLS="${HOME}/.openclaw/skills"
-ORG="https://github.com/transiglobal"
+ORG="https://git.moguyn.cn/transiglobal"
 ENV_FILE="${HOME}/.openclaw/workspace/.env"
 
 mkdir -p "$(dirname "$ENV_FILE")"

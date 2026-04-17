@@ -43,7 +43,7 @@ ssh user@remote-host 'bash -s' < ~/.openclaw/workspace/skills/office-advanced-sk
 
 ### curl 一行安装
 ```bash
-curl -fsSL https://raw.githubusercontent.com/transiglobal/office-advanced-skills/main/scripts/install-office-advanced.sh | bash
+curl -fsSL https://git.moguyn.cn/transiglobal/office-advanced-skills/raw/branch/main/scripts/install-office-advanced.sh | bash
 ```
 
 ## Agent 调用指南
@@ -57,7 +57,7 @@ curl -fsSL https://raw.githubusercontent.com/transiglobal/office-advanced-skills
 
 ## 注意事项
 
-- 需要能访问 github.com（国内可能需要代理）
+- 需要能访问 git.moguyn.cn（蘑菇云 Gitea）
 - 已存在的技能会自动跳过，不会覆盖
 - skywork-ppt 需要 Python 3 (>=3.8)
 - paddleocr-doc-parsing 需要 PaddleOCR 环境
